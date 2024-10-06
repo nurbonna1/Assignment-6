@@ -3,3 +3,55 @@
 
 // Put your code here.
 
+// Fib01.tst
+// Test case to calculate Fib(5)
+
+load Fib.vm
+output-file Fib01.out
+compare-to Fib01.cmp
+output-list Stack 0
+
+// Initialize the test environment
+init
+
+// Call Fib.fib(5)
+push constant 5
+call Fib.fib 1
+
+// End the test script
+output
+
+// Fib02.tst
+// Test case to calculate Fib(7)
+
+load Fib.vm
+output-file Fib02.out
+compare-to Fib02.cmp
+output-list Stack 0
+
+// Initialize the test environment
+init
+
+// Call Fib.fib(7)
+push constant 7
+call Fib.fib 1
+
+// End the test script
+output
+// Fib03.tst
+// Test case to calculate Fib(10)
+
+load Fib.vm
+output-file Fib03.out
+compare-to Fib03.cmp
+output-list Stack 0
+
+// Initialize the test environment
+init
+
+// Call Fib.fib(10)
+push constant 10
+call Fib.fib 1
+
+// End the test script
+output
