@@ -27,6 +27,29 @@ call AddSub.main 0
 output
 
 
+// AddSub02.tst
+// Test case to verify the calculation (a + b) - x
+// where a = 10, b = 5, and x = 7
+
+load AddSub.vm
+output-file AddSub02.out
+compare-to AddSub02.cmp
+output-list Stack 0
+
+// Initialize the test environment
+init
+
+// Set the values for local variables and static variable
+set local 0 10   // a = 10
+set local 1 5    // b = 5
+set static 0 7   // x = 7
+
+// Call the main function of AddSub
+call AddSub.main 0
+
+// End the test script
+output
+
 
 label END
 goto END
