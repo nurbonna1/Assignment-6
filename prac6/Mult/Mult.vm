@@ -4,6 +4,47 @@
 
 // Put your code here.
 
+// Mult01.tst
+// Test case to multiply x = 3 and y = 4
+
+load Mult.vm
+output-file Mult01.out
+compare-to Mult01.cmp
+output-list Stack 0
+
+// Initialize the test environment
+init
+
+// Set the values for static variables
+set static 0 3   // x = 3
+set static 1 4   // y = 4
+
+// Call the main function of Mult
+call Mult.main 0
+
+// End the test script
+output
+
+// Mult02.tst
+// Test case to multiply x = 5 and y = 6
+
+load Mult.vm
+output-file Mult02.out
+compare-to Mult02.cmp
+output-list Stack 0
+
+// Initialize the test environment
+init
+
+// Set the values for static variables
+set static 0 5   // x = 5
+set static 1 6   // y = 6
+
+// Call the main function of Mult
+call Mult.main 0
+
+// End the test script
+output
 
 
 label END
