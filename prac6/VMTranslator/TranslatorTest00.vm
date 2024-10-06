@@ -3,3 +3,54 @@ push constant 1
 push constant 2
 add
 pop static 0
+
+// METHODTest01.vm
+// Test case for vm_push with a constant value
+
+push constant 7
+
+
+// METHODTest02.vm
+// Test case for vm_push with a local segment
+
+push local 2
+
+// METHODTest02.vm
+// Test case for vm_push with a local segment
+
+push local 2
+// METHODTest01.vm
+// Test case for vm_eq
+
+push constant 5
+push constant 5
+eq
+// METHODTest01.vm
+// Test case for vm_label
+
+label LOOP_START
+// METHODTest02.vm
+// Test case for vm_goto
+
+goto LOOP_START
+// METHODTest03.vm
+// Test case for vm_if
+
+push constant 1
+if-goto LOOP_START
+
+// METHODTest04.vm
+// Test case for vm_if with zero condition
+
+push constant 0
+if-goto LOOP_START
+
+// METHODTest01.vm
+// Test case for vm_function
+
+function SimpleFunction 2
+// METHODTest02.vm
+// Test case for vm_call
+
+call SimpleFunction 3
+
