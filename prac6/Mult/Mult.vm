@@ -4,48 +4,83 @@
 
 // Put your code here.
 
-// Mult01.tst
-// Test case to multiply x = 3 and y = 4
+// Initialize a = 0 (local variable 0)
 
-load Mult.vm
-output-file Mult01.out
-compare-to Mult01.cmp
-output-list Stack 0
+push constant 0
 
-// Initialize the test environment
-init
+pop local 0 // a = 0
 
-// Set the values for static variables
-set static 0 3   // x = 3
-set static 1 4   // y = 4
+ 
 
-// Call the main function of Mult
-call Mult.main 0
+// Load x into temp 0 (static 0)
 
-// End the test script
-output
+push static 0
 
-// Mult02.tst
-// Test case to multiply x = 5 and y = 6
+pop temp 0 // temp 0 = x
 
-load Mult.vm
-output-file Mult02.out
-compare-to Mult02.cmp
-output-list Stack 0
+ 
 
-// Initialize the test environment
-init
+// Load y into temp 1 (static 1)
 
-// Set the values for static variables
-set static 0 5   // x = 5
-set static 1 6   // y = 6
+push static 1
 
-// Call the main function of Mult
-call Mult.main 0
+pop temp 1 // temp 1 = y
 
-// End the test script
-output
+ 
 
+// If y == 0, skip the loop (result is already 0)
+
+push temp 1
+
+push constant 0
+
+eq
+
+if-goto END
+
+ 
+
+// Label for the multiplication loop
+
+label MULT_LOOP
+
+ 
+
+// Decrease y by 1
+
+push temp 1
+
+push constant 1
+
+sub
+
+pop temp 1 // y = y - 1
+
+ 
+
+// Add x to a (local 0)
+
+push temp 0    // x
+
+push local 0   // a
+
+add
+
+pop local 0    // a = a + x
+
+ 
+
+// Check if y > 0, repeat the loop
+
+push temp 1
+
+push constant 0
+
+gt
+
+if-goto MULT_LOOP
+
+ 
 
 label END
 goto END
