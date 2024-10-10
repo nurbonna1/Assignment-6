@@ -2,51 +2,39 @@
 // x & y are static variables
 
 // Put your code here.
-// Abs01.tst
-// Test case to verify the calculation of the absolute value of x
-// where x = -7
 
-load Abs.vm
-output-file Abs01.out
-compare-to Abs01.cmp
-output-list Stack 0
+push static 0
 
-// Initialize the test environment
-init
+push constant 0
 
-// Set the value for static variables
-set static 0 -7   // x = -7
-set static 1 0    // y is not used in this case
+lt 0
 
-// Call the main function of Abs
-call Abs.main 0
+if-goto NEG
 
-// End the test script
-output
+goto POS
 
-// Abs02.tst
-// Test case to verify the calculation of the absolute value of x
-// where x = 5
+ 
 
-load Abs.vm
-output-file Abs02.out
-compare-to Abs02.cmp
-output-list Stack 0
+label NEG
 
-// Initialize the test environment
-init
+push static 0
 
-// Set the value for static variables
-set static 0 5    // x = 5
-set static 1 0    // y is not used in this case
+neg
 
-// Call the main function of Abs
-call Abs.main 0
+pop static 1
 
-// End the test script
-output
+goto END
 
+ 
 
+label POS
+
+push static 0
+
+pop static 1
+
+ 
 
 label END
+
 goto END
