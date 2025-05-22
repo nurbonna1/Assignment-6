@@ -1,0 +1,2 @@
+push constant 15
+pop local 2
