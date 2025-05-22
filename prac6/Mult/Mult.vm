@@ -1,0 +1,46 @@
+// Calculates a = x*y
+// a is a local variable
+// x & y are static variables
+
+// Put your code here.
+// Initialize a = 0 (local variable 0)
+push constant 0
+pop local 0 // a = 0
+
+// Load x into temp 0 (static 0)
+push static 0
+pop temp 0 // temp 0 = x
+
+// Load y into temp 1 (static 1)
+push static 1
+pop temp 1 // temp 1 = y
+
+// If y == 0, skip the loop (result is already 0)
+push temp 1
+push constant 0
+eq
+if-goto END
+
+// Label for the multiplication loop
+label MULT_LOOP
+
+// Decrease y by 1
+push temp 1
+push constant 1
+sub
+pop temp 1 // y = y - 1
+
+// Add x to a (local 0)
+push temp 0    // x
+push local 0   // a
+add
+pop local 0    // a = a + x
+
+// Check if y > 0, repeat the loop
+push temp 1
+push constant 0
+gt
+if-goto MULT_LOOP
+
+label END
+goto END
